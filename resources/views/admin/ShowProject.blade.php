@@ -16,7 +16,7 @@
                 <h6>DESKRIPSI :</h6>
                 {{ $item->deskripsi }}
                 <div class="card-body">
-                <img src="{{asset('./template/img/' .$item->foto)}}" width="150" class="img-thumbnail">
+                <img src="{{asset('/template/img/' .$item->foto)}}" width="150" class="img-thumbnail">
             </div>
             </div>
             <div class="card-footer"> 

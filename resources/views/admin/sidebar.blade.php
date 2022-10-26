@@ -6,7 +6,7 @@
     <div class="sidebar-brand-icon rotate-n-0">
         <i class="fas fa-school"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">School <sup>sch</sup></div>
+    <div class="sidebar-brand-text mx-3">Tugas <sup>sch</sup></div>
 </a>
 
 <!-- Divider -->
