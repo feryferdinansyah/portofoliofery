@@ -23,14 +23,14 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tfoot>
+                    {{-- <tfoot>
                         <tr>
                             <th>Kontak Siswa</th>
                             <th>Jenis Kontak</th>
                             <th>Deskripsi</th>
                             <th>Action</th>
                         </tr>
-                    </tfoot>
+                    </tfoot> --}}
                     <tbody>
                         @foreach ($kontak as $index => $item)
                         <tr>
