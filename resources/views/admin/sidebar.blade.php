@@ -39,6 +39,11 @@
         <i class="fas fa-id-card-alt"></i>
         <span>Contact </span></a>
 </li>
+<li class="nav-item">
+    <a class="nav-link" href="/jnskontak">
+        <i class="fas fa-id-card-alt"></i>
+        <span>Add Jenis Kontak</span></a>
+</li>
 <hr class="sidebar-divider m-0">
 
 {{-- <li class="nav-item">

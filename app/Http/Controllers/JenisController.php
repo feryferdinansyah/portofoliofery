@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kontak;
-use App\Models\Siswa;
 use App\Models\Jeniskontak;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
-use File;
-// use App/Models/Siswa;
 
-class KontakController extends Controller
+class JenisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +15,9 @@ class KontakController extends Controller
      */
     public function index()
     {
-        $kontak = Kontak::all();
-        return view('/admin.kontak' ,  compact('kontak'));
+        $data = Jeniskontak::all();
+        $siswa = Siswa::all();
+        return view('admin.jnsKontak', compact('data','siswa'));
     }
 
     /**
@@ -29,10 +27,7 @@ class KontakController extends Controller
      */
     public function create()
     {
-        return view("admin.TambahKontak", [
-            'siswa' => siswa::all(),
-            'jenis' => Jeniskontak::all()
-        ]);
+        return view('admin.createjnsKontak');
     }
 
     /**
@@ -47,12 +42,10 @@ class KontakController extends Controller
             'required' => ':attribute harus diisi dulu bang'
         ];
         $validated = $request->validate([
-            "id_siswa" => "required",
-            "id_jenis" => "required",
-            "deskripsi" => "required",
+            "tipe_kontak" => "required"
         ],$message);
-        Kontak::create($validated);
-        return redirect()->route('kontak.index');
+        Jeniskontak::create($validated);
+        return redirect()->route('jnskontak.index');
     }
 
     /**
@@ -63,7 +56,7 @@ class KontakController extends Controller
      */
     public function show($id)
     {
-        return view ('admin.ShowKontak');
+        //
     }
 
     /**
@@ -74,9 +67,8 @@ class KontakController extends Controller
      */
     public function edit($id)
     {
-        $data = Kontak::find($id);
-        $jenis_kontak = Jeniskontak::find($id);
-        return view ('admin.EditKontak', compact('data','jenis_kontak'));
+        $data = Jeniskontak::find($id);
+        return view('admin.editjnsKontak', compact('data'));
     }
 
     /**
@@ -93,18 +85,13 @@ class KontakController extends Controller
         ];
         
         $this->validate($request,[
-            
-            'id_siswa'=>'required',
             'tipe_kontak'=>'required',
-            'deskripsi'=>'required',
         ],$message);
 
-        $kontak = Kontak::find($id);
-        $kontak->tipe_kontak = $request->tipe_kontak;
-        $kontak->id_siswa = $request->id_siswa;
-        $kontak->deskripsi = $request->deskripsi;
-        $kontak->update();
-        return redirect('/kontak');
+        $jenis = Jeniskontak::find($id);
+        $jenis->tipe_kontak = $request->tipe_kontak;
+        $jenis->update();
+        return redirect('/jnskontak');
     }
 
     /**
@@ -115,6 +102,7 @@ class KontakController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Jeniskontak::find($id)->delete();
+        return redirect('/jnskontak');
     }
 }

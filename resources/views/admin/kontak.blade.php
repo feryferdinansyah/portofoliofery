@@ -2,10 +2,10 @@
 @section('title','kontak')
 @section('content-title','kontak')
 @section('content')
-<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+{{-- <h1 class="h3 mb-2 text-gray-800">Tables</h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank"
-            href="https://datatables.net">official DataTables documentation</a>.</p>
+            href="https://datatables.net">official DataTables documentation</a>.</p> --}}
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -38,9 +38,9 @@
                             <td>{{ $item->jeniskontak->tipe_kontak }}</td>
                             <td>{{ $item->deskripsi }}</td>
                             <td>
-                                <a href="{{ route('kontak.show', ['kontak' => $item->id]) }}" class="btn btn-primary btn-circle btn-sm">
+                                {{-- <a href="{{ route('kontak.show', ['kontak' => $item->id]) }}" class="btn btn-primary btn-circle btn-sm">
                                     <i class="fas fa-eye"></i>
-                                </a>
+                                </a> --}}
                                 <a href="{{ route('kontak.edit', ['kontak' => $item->id]) }}" class="btn btn-warning btn-circle btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JenisController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProjectController;
@@ -43,6 +44,10 @@ Route::get('/projects/create/{id_siswa}', [ProjectController::class,'create']);
 Route::resource('/kontak',KontakController::class);
 Route::get('/projects/{id}/');
 Route::post('users/{id}', );
+Route::resource('/jnskontak',JenisController::class);
+// Route::get('/jnskontak', function () {
+//     return view('admin.jnsKontak');
+// });
 });
 //guest
 route::middleware('guest')->group(function (){
@@ -64,4 +69,5 @@ Route::get('/project', function () {
 Route::get('/dashboard', function () {
     return view('profil');
 });
+
 });
