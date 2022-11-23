@@ -40,19 +40,16 @@
                             <td>
                                 {{-- <a href="{{ route('kontak.show', ['kontak' => $item->id]) }}" class="btn btn-primary btn-circle btn-sm">
                                     <i class="fas fa-eye"></i>
-                                </a> --}}
-                                <a href="{{ route('kontak.edit', ['kontak' => $item->id]) }}" class="btn btn-warning btn-circle btn-sm">
+                                </a> --}}  
+                                <form class="d-inline" action="{{route('kontak.destroy',$item->id)}}" method="POST">
+                                {{-- <a href="{{ route('kontak.edit', ['kontak' => $item->id]) }}" class="btn btn-warning btn-circle btn-sm">
                                     <i class="fas fa-edit"></i>
-                                </a>
-                                <form id="form-delete{{ $item->id }}"
-                                    action="{{ route('kontak.destroy', ['kontak' => $item->id]) }}"
-                                    method="post" style="display: none">
+                                </a> --}}
+                              
                                     @method('delete')
                                     @csrf
+                                    <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
                                 </form>
-                                <a href="#" onclick="what({{ $item->id }})" class="btn btn-danger btn-circle btn-sm">
-                                    <i class="fas fa-skull-crossbones"></i>
-                                </a>
                             </td>
                         </tr>
                         @endforeach

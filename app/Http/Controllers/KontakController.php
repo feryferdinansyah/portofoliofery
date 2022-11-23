@@ -115,6 +115,7 @@ class KontakController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kontak::find($id)->delete();
+        return redirect()->back();
     }
 }
